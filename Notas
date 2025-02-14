@@ -1,1 +1,7 @@
 git amend precisa ter um git push --force
+
+Monolito (sua estrutura básica)
+- Apresentação -> Controller
+- Serviço -> Service
+- Persistência -> Repository
+- Banco de dados
