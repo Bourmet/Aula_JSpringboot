@@ -3,6 +3,7 @@ package com.AulaSpring.CadastroDeNinjas.ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NinjaService {
@@ -18,9 +19,20 @@ public class NinjaService {
 
     }
 
+    //Criar ninja
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+    }
+
     //Listar todos os meus ninjas
     public List<NinjaModel> mostrarNinjas(){
         return ninjaRepository.findAll();
 
+    }
+    //Listar por Id
+    public NinjaModel listarPorId(Long id){
+        //O optional foi utilizado pq há uma chance do usuário colocar um Id ñ existente
+        Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
+        return ninjaPorId.orElse(null);
     }
 }
