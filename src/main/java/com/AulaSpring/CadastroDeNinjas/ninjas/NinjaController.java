@@ -2,9 +2,17 @@ package com.AulaSpring.CadastroDeNinjas.ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping //Definir rota
 public class NinjaController {
+
+    private NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @GetMapping("/boasvindas") //Retorna algo por essa rota
     public  String boasVindas(){
@@ -19,8 +27,8 @@ public class NinjaController {
     }
     //Mostrar ninjas (READ)
     @GetMapping("/todos")
-    public String mostrarNinja(){
-        return "ok";
+    public List<NinjaModel> mostrarNinjas(){
+        return ninjaService.mostrarNinjas();
     }
 
     //Mostrar ninja por id
