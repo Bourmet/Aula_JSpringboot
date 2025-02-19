@@ -1,6 +1,7 @@
 package com.AulaSpring.CadastroDeNinjas.missoes;
 
 import com.AulaSpring.CadastroDeNinjas.ninjas.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +23,7 @@ public class MissoesModel {
     private String dificuldade;
 
     @OneToMany
+    //Caso de loop de serialização pois aqui gera loop use @JsonIgnore
+    @JsonIgnore
     private List<NinjaModel> ninja;
 }
