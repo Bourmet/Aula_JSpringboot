@@ -24,6 +24,7 @@ public class NinjaModel {
     private String email;
     @Column(name = "img_url")
     private String imgUrl;
+    private String rank;
     private int idade;
 
     @ManyToOne
